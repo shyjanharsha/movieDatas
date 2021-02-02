@@ -5,33 +5,33 @@ import movieDetail from './moviefile.js';
 const { Title,Text } = Typography;
 const style = { background: '#0092ff', padding: '8px 0' };
 function ShowMovies(props){
-    const movie = [];
-    const display  = movieDetail[props.selectedMovie]
-    console.log("display",display)
-    movie.push(display)
-    console.log('movie',movie)
-       const singleMovie = () =>(
-        movie.map((showMovies,index)=>{
+    // const movie = [];
+    
+    // console.log("display",display)
+    // movie.push(display)
+    // console.log('movie',movie)
+       const singleMovie = () =>{
+        const display  = movieDetail[props.selectedMovie]
             return (
                 <>
-                    <Col span={4} accessKey={index}  style={{ backgroundImage: `url(${showMovies.Poster} )` }}></Col>
+                    <Col span={4}   style={{ backgroundImage: `url(${display.Poster} )` }}></Col>
                                
                 <Col span={24}>
                     
                 </Col>
                 <Col span={8}>
-                    <Title level={2}>Movie Name:{showMovies.Title}  </Title>
-                    <Text mark>Released Details:</Text>{showMovies.Released}
+                    <Title level={2}>Movie Name:{display.Title}  </Title>
+                    <Text mark>Released Details:</Text>{display.Released}
                 </Col>
                 <Col span={8}>
-                    <Text type="success">Story:</Text>{showMovies.Plot}
+                    <Text type="success">Story:</Text>{display.Plot}
                 </Col>
 
                 </>
                 
             )
-        })
-       ) 
+        
+        }
     
     return (
         <>
